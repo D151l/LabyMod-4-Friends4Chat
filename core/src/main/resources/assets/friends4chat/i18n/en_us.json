@@ -6,22 +6,25 @@
         "name": "Enabled"
       },
       "friendStateSettings": {
-        "name": "Friend States Settings",
+        "name": "Friend State Settings",
         "updateToOnline": {
-          "name": "Notify when Friend goes online!"
+          "name": "Notify when friend goes online!"
         },
         "updateToOffline": {
-          "name": "Notify when Friend goes offline!"
+          "name": "Notify when friend goes offline!"
         },
         "updateToOtherOnlineState": {
-          "name": "Notify when Friend switches online status!"
+          "name": "Notify when friend switches online status!"
         }
       },
       "notifyServerUpdate": {
-        "name": "Notify when Friend updates server."
+        "name": "Notify when friend updates server."
       },
       "notifyFriendRequest": {
         "name": "Notify when receiving a friend request."
+      },
+      "notifyFriendMessageReceive": {
+        "name": "Notify when receiving a message from a friend."
       },
       "header": {
         "friend-state": {
@@ -32,6 +35,9 @@
         },
         "friend-request": {
           "name": "Friend Requests"
+        },
+        "chat-message-notify": {
+          "name": "Chat message notification"
         }
       }
     },
@@ -55,15 +61,22 @@
           "successfully": {
             "accepted": "%s You have successfully accepted the request from %s!",
             "deny": "%s You have successfully denied the request!"
-          },
-          "format": {
-            "incorrect": "%s The format is incorrect!"
           }
         }
+      },
+      "format": {
+        "incorrect": "%s The format is incorrect!"
       },
       "not": {
         "connect": {
           "labymod": "%s You are currently not connected to the LabyMod servers!"
+        }
+      },
+      "chat": {
+        "notify": "%s You have a new chat message from %s!",
+        "hover": "Click to open the Chat",
+        "not": {
+          "found": "%s You have no friendship with this player!"
         }
       },
       "bottom": {

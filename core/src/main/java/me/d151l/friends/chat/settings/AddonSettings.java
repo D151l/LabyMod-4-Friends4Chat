@@ -30,6 +30,10 @@ public class AddonSettings extends AddonConfig {
   @SwitchSetting
   private final ConfigProperty<Boolean> notifyFriendRequest = new ConfigProperty<>(true);
 
+  @SettingSection("chat-message-notify")
+  @SwitchSetting
+  private final ConfigProperty<Boolean> notifyFriendMessageReceive = new ConfigProperty<>(true);
+
   @Override
   public ConfigProperty<Boolean> enabled() {
     return this.enabled;
@@ -45,5 +49,9 @@ public class AddonSettings extends AddonConfig {
 
   public ConfigProperty<Boolean> getNotifyFriendRequest() {
     return notifyFriendRequest;
+  }
+
+  public ConfigProperty<Boolean> getNotifyFriendMessageReceive() {
+    return notifyFriendMessageReceive;
   }
 }
