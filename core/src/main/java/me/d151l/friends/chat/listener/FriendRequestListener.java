@@ -7,7 +7,6 @@ import net.labymod.api.client.component.TranslatableComponent;
 import net.labymod.api.client.component.event.ClickEvent;
 import net.labymod.api.client.component.format.TextColor;
 import net.labymod.api.event.Subscribe;
-import net.labymod.api.event.labymod.labyconnect.session.chat.LabyConnectChatMessageEvent;
 import net.labymod.api.event.labymod.labyconnect.session.request.LabyConnectIncomingFriendRequestAddEvent;
 import net.labymod.api.labyconnect.protocol.model.request.IncomingFriendRequest;
 import net.labymod.api.util.I18n;

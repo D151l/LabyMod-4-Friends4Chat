@@ -6,8 +6,6 @@ import me.d151l.friends.chat.listener.FriendRequestListener;
 import me.d151l.friends.chat.listener.FriendServerListener;
 import me.d151l.friends.chat.listener.FriendStatusUpdateListener;
 import me.d151l.friends.chat.settings.AddonSettings;
-import me.d151l.friends.chat.state.FriendStateHandler;
-import net.labymod.api.Laby;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.models.addon.annotation.AddonMain;

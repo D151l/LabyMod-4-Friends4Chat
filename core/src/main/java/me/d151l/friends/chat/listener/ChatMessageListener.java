@@ -2,18 +2,14 @@ package me.d151l.friends.chat.listener;
 
 import me.d151l.friends.chat.Friends4Chat;
 import net.labymod.api.client.component.Component;
-import net.labymod.api.client.component.TextComponent;
 import net.labymod.api.client.component.TranslatableComponent;
 import net.labymod.api.client.component.event.ClickEvent;
 import net.labymod.api.client.component.event.HoverEvent;
 import net.labymod.api.client.component.format.TextColor;
 import net.labymod.api.event.Subscribe;
-import net.labymod.api.event.client.chat.ChatReceiveEvent;
 import net.labymod.api.event.labymod.labyconnect.session.chat.LabyConnectChatMessageEvent;
 import net.labymod.api.labyconnect.protocol.model.User;
 import net.labymod.api.labyconnect.protocol.model.chat.ChatMessage;
-import net.labymod.api.metadata.Metadata;
-import net.labymod.api.util.I18n;
 
 /**
  * @author D151l
