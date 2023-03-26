@@ -43,16 +43,28 @@ public class LMFriendsCommand extends Command {
         try {
           uuid = UUID.fromString(uuidString);
         } catch (Exception exception) {
-          this.friends4Chat.displayMessage("");
+          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.format.incorrect",
+              gray,
+              this.friends4Chat.getPrefix()
+          ));
           return true;
         }
+
+        if (!Laby.labyAPI().labyConnect().isConnected()) {
+          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.not.connect.labymod",
+              gray,
+              this.friends4Chat.getPrefix()
+          ));
+          return true;
+        }
+
         final LabyConnectSession session = Laby.labyAPI().labyConnect().getSession();
         final IncomingFriendRequest incomingRequest = Objects.requireNonNull(
                 session)
             .getIncomingRequest(uuid);
 
         if (incomingRequest == null) {
-          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.request.not.found",
+          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.not.found",
               gray,
               this.friends4Chat.getPrefix()
           ));
@@ -65,7 +77,7 @@ public class LMFriendsCommand extends Command {
         final String name = friend.getName();
         final Component friendName = Component.text(name, friend.gameUser().visibleGroup().getTextColor());
 
-        this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.request.successfully.accepted",
+        this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.successfully.accepted",
             gray,
         this.friends4Chat.getPrefix(),
             friendName));
@@ -87,7 +99,7 @@ public class LMFriendsCommand extends Command {
             .getIncomingRequest(uuid);
 
         if (incomingRequest == null) {
-          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.request.not.found",
+          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.not.found",
               gray,
               this.friends4Chat.getPrefix()
           ));
@@ -95,7 +107,7 @@ public class LMFriendsCommand extends Command {
         }
 
         session.declineFriendRequest(uuid);
-        this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.request.successfully.deny",
+        this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.successfully.deny",
             gray,
             this.friends4Chat.getPrefix()));
       }

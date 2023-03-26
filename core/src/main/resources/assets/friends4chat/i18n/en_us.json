@@ -55,7 +55,15 @@
           "successfully": {
             "accepted": "%s You have successfully accepted the request from %s!",
             "deny": "%s You have successfully denied the request!"
+          },
+          "format": {
+            "incorrect": "%s The format is incorrect!"
           }
+        }
+      },
+      "not": {
+        "connect": {
+          "labymod": "%s You are currently not connected to the LabyMod servers!"
         }
       },
       "bottom": {
