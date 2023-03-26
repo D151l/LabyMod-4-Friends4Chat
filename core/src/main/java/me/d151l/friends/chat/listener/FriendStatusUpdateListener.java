@@ -2,6 +2,8 @@ package me.d151l.friends.chat.listener;
 
 import me.d151l.friends.chat.Friends4Chat;
 import net.labymod.api.client.component.Component;
+import net.labymod.api.client.component.TranslatableComponent;
+import net.labymod.api.client.component.format.TextColor;
 import net.labymod.api.event.Subscribe;
 import net.labymod.api.event.labymod.labyconnect.session.friend.LabyConnectFriendStatusEvent;
 import net.labymod.api.labyconnect.protocol.model.UserStatus;
@@ -29,17 +31,28 @@ public class FriendStatusUpdateListener {
 
     if (event.isOnline() && event.getPreviousStatus().equals(UserStatus.OFFLINE)) {
       if (this.friends4Chat.configuration().getFriendStateSettings().getUpdateToOnline().getOrDefault())
-        this.friends4Chat.getFriendStateHandler().notifyFriendStateUpdate(friendName, state);
+        this.notifyFriendStateUpdate(friendName, state);
       return;
     }
 
     if (event.wasOnline() && event.getStatus().equals(UserStatus.OFFLINE)) {
       if (this.friends4Chat.configuration().getFriendStateSettings().getUpdateToOffline().getOrDefault())
-        this.friends4Chat.getFriendStateHandler().notifyFriendStateUpdate(friendName, UserStatus.OFFLINE);
+        this.notifyFriendStateUpdate(friendName, UserStatus.OFFLINE);
       return;
     }
 
     if (this.friends4Chat.configuration().getFriendStateSettings().getUpdateToOtherOnlineState().getOrDefault())
-      this.friends4Chat.getFriendStateHandler().notifyFriendStateUpdate(friendName, state);
+      this.notifyFriendStateUpdate(friendName, state);
+  }
+
+  private void notifyFriendStateUpdate(final Component friendName, final UserStatus status) {
+    final TranslatableComponent component = Component.translatable(
+        "friends4chat.message.friend.status.update",
+        TextColor.color(170, 170, 170),
+        this.friends4Chat.getPrefix(),
+        friendName,
+        status.component()
+    );
+    this.friends4Chat.displayMessage(component);
   }
 }

@@ -23,14 +23,10 @@ public class Friends4Chat extends LabyAddon<AddonSettings> {
 
   private static Friends4Chat instance;
 
-  private final FriendStateHandler friendStateHandler;
-
   private Component prefix;
 
   public Friends4Chat() {
     instance = this;
-
-    this.friendStateHandler = new FriendStateHandler(this);
   }
 
   @Override
@@ -52,10 +48,6 @@ public class Friends4Chat extends LabyAddon<AddonSettings> {
 
   public static Friends4Chat getInstance() {
     return instance;
-  }
-
-  public FriendStateHandler getFriendStateHandler() {
-    return friendStateHandler;
   }
 
   public Component getPrefix() {
