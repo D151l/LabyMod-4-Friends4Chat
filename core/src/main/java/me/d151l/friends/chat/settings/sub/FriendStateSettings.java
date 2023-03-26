@@ -23,7 +23,7 @@ public class FriendStateSettings extends Config {
   private ConfigProperty<Boolean> updateToOffline = new ConfigProperty<>(true);
 
   @SwitchSetting
-  private ConfigProperty<Boolean> updateToOtherOnlineState = new ConfigProperty<>(true);
+  private ConfigProperty<Boolean> updateToOtherOnlineState = new ConfigProperty<>(false);
 
   public ConfigProperty<Boolean> getUpdateToOffline() {
     return updateToOffline;
