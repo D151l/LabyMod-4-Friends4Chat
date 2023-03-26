@@ -20,12 +20,18 @@
       "notifyServerUpdate": {
         "name": "Notify when Friend updates server."
       },
+      "notifyFriendRequest": {
+        "name": "Notify when receiving a friend request."
+      },
       "header": {
         "friend-state": {
           "name": "Friend States"
         },
         "servers": {
           "name": "Servers"
+        },
+        "friend-request": {
+          "name": "Friend Requests"
         }
       }
     },

@@ -26,6 +26,10 @@ public class AddonSettings extends AddonConfig {
   @SwitchSetting
   private final ConfigProperty<Boolean> notifyServerUpdate = new ConfigProperty<>(true);
 
+  @SettingSection("friend-request")
+  @SwitchSetting
+  private final ConfigProperty<Boolean> notifyFriendRequest = new ConfigProperty<>(true);
+
   @Override
   public ConfigProperty<Boolean> enabled() {
     return this.enabled;
@@ -37,5 +41,9 @@ public class AddonSettings extends AddonConfig {
 
   public ConfigProperty<Boolean> getNotifyServerUpdate() {
     return notifyServerUpdate;
+  }
+
+  public ConfigProperty<Boolean> getNotifyFriendRequest() {
+    return notifyFriendRequest;
   }
 }

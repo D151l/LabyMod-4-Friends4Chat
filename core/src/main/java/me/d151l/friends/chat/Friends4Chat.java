@@ -1,6 +1,7 @@
 package me.d151l.friends.chat;
 
 import me.d151l.friends.chat.command.LMFriendsCommand;
+import me.d151l.friends.chat.listener.FriendRequestListener;
 import me.d151l.friends.chat.listener.FriendServerListener;
 import me.d151l.friends.chat.listener.FriendStatusUpdateListener;
 import me.d151l.friends.chat.settings.AddonSettings;
@@ -37,6 +38,7 @@ public class Friends4Chat extends LabyAddon<AddonSettings> {
 
     this.registerListener(new FriendStatusUpdateListener(this));
     this.registerListener(new FriendServerListener(this));
+    this.registerListener(new FriendRequestListener(this));
 
     this.registerCommand(new LMFriendsCommand(this));
   }
