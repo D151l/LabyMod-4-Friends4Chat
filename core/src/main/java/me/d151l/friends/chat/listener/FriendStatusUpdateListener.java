@@ -35,7 +35,7 @@ public class FriendStatusUpdateListener {
 
     if (event.wasOnline() && event.getStatus().equals(UserStatus.OFFLINE)) {
       if (this.friends4Chat.configuration().getFriendStateSettings().getUpdateToOffline().getOrDefault())
-        this.friends4Chat.getFriendStateHandler().notifyFriendStateUpdate(friendName, state);
+        this.friends4Chat.getFriendStateHandler().notifyFriendStateUpdate(friendName, UserStatus.OFFLINE);
       return;
     }
 
