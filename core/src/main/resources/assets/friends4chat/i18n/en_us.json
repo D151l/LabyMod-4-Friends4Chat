@@ -8,17 +8,17 @@
       "friendStateSettings": {
         "name": "Friend States Settings",
         "updateToOnline": {
-          "name": "Notify if Friend is going online!"
+          "name": "Notify when Friend goes online!"
         },
         "updateToOffline": {
-          "name": "Notify if Friend is going offline!"
+          "name": "Notify when Friend goes offline!"
         },
         "updateToOtherOnlineState": {
-          "name": "Notify if Friend switch the online state!"
+          "name": "Notify when Friend switches online status!"
         }
       },
       "notifyServerUpdate": {
-        "name": "Notify when Friend Server Update."
+        "name": "Notify when Friend updates server."
       },
       "header": {
         "friend-state": {
@@ -33,14 +33,28 @@
       "prefix": "§8[§3LM Friends§8]",
       "friend": {
         "status": {
-          "update": "%s Your Friend %s is now %s!"
+          "update": "%s Your friend %s is now %s!"
         },
         "server": {
-          "update":  {
-            "message": "%s Your Friend %s is now playing on %s!",
+          "update": {
+            "message": "%s Your friend %s is now playing on %s!",
             "hover": "Click to jump!"
           }
+        },
+        "requests": {
+          "notify": "%s You have a friend request from %s! \n$s %s | %s",
+          "not": {
+            "found": "%s You don't have a request from this player!"
+          },
+          "successfully": {
+            "accepted": "%s You have successfully accepted the request from %s!",
+            "deny": "%s You have successfully denied the request!"
+          }
         }
+      },
+      "bottom": {
+        "accept": "§8[§aAccept§8]",
+        "deny": "§8[§cDeny§8]"
       }
     }
   }
