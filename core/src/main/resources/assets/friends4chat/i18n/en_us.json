@@ -17,9 +17,15 @@
           "name": "Notify if Friend switch the online state!"
         }
       },
+      "notifyServerUpdate": {
+        "name": "Notify when Friend Server Update."
+      },
       "header": {
         "friend-state": {
           "name": "Friend States"
+        },
+        "servers": {
+          "name": "Servers"
         }
       }
     },
@@ -28,6 +34,12 @@
       "friend": {
         "status": {
           "update": "%s Your Friend %s is now %s!"
+        },
+        "server": {
+          "update":  {
+            "message": "%s Your Friend %s is now playing on %s!",
+            "hover": "Click to jump!"
+          }
         }
       }
     }

@@ -1,5 +1,7 @@
 package me.d151l.friends.chat;
 
+import me.d151l.friends.chat.command.LMFriendsCommand;
+import me.d151l.friends.chat.listener.FriendServerListener;
 import me.d151l.friends.chat.listener.FriendStatusUpdateListener;
 import me.d151l.friends.chat.settings.AddonSettings;
 import me.d151l.friends.chat.state.FriendStateHandler;
@@ -34,8 +36,9 @@ public class Friends4Chat extends LabyAddon<AddonSettings> {
     this.registerSettingCategory();
 
     this.registerListener(new FriendStatusUpdateListener(this));
+    this.registerListener(new FriendServerListener(this));
 
-    this.prefix = Component.text(I18n.getTranslation("friends4chat.message.prefix"));
+    this.registerCommand(new LMFriendsCommand(this));
   }
 
   @Override
@@ -52,6 +55,9 @@ public class Friends4Chat extends LabyAddon<AddonSettings> {
   }
 
   public Component getPrefix() {
+    if (this.prefix == null)
+      this.prefix = Component.text(I18n.getTranslation("friends4chat.message.prefix"));
+
     return prefix;
   }
 }

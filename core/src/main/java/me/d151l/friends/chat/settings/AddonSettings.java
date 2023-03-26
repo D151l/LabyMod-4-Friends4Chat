@@ -20,7 +20,11 @@ public class AddonSettings extends AddonConfig {
   private final ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
 
   @SettingSection("friend-state")
-  private FriendStateSettings friendStateSettings = new FriendStateSettings();
+  private final FriendStateSettings friendStateSettings = new FriendStateSettings();
+
+  @SettingSection("servers")
+  @SwitchSetting
+  private final ConfigProperty<Boolean> notifyServerUpdate = new ConfigProperty<>(true);
 
   @Override
   public ConfigProperty<Boolean> enabled() {
@@ -29,5 +33,9 @@ public class AddonSettings extends AddonConfig {
 
   public FriendStateSettings getFriendStateSettings() {
     return friendStateSettings;
+  }
+
+  public ConfigProperty<Boolean> getNotifyServerUpdate() {
+    return notifyServerUpdate;
   }
 }
