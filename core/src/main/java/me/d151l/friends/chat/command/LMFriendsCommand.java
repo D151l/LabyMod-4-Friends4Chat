@@ -90,7 +90,10 @@ public class LMFriendsCommand extends Command {
         try {
           uuid = UUID.fromString(uuidString);
         } catch (Exception exception) {
-          this.friends4Chat.displayMessage("");
+          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.format.incorrect",
+              gray,
+              this.friends4Chat.getPrefix()
+          ));
           return true;
         }
         final LabyConnectSession session = Laby.labyAPI().labyConnect().getSession();
