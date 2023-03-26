@@ -27,6 +27,9 @@ public class FriendRequestListener {
 
   @Subscribe
   public void onFriendRequestAdd(final LabyConnectIncomingFriendRequestAddEvent event) {
+    if (!this.friends4Chat.configuration().getNotifyFriendRequest().getOrDefault())
+      return;
+
     final IncomingFriendRequest request = event.request();
     final String name = request.getName();
 
