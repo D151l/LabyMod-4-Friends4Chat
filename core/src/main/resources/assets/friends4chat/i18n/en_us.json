@@ -24,7 +24,7 @@
       }
     },
     "message": {
-      "prefix": "[LM Friends]",
+      "prefix": "§8[§3LM Friends§8]",
       "friend": {
         "status": {
           "update": "%s Your Friend %s is now %s!"
