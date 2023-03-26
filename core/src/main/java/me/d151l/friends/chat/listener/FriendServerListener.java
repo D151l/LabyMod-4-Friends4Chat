@@ -34,11 +34,11 @@ public class FriendServerListener {
     final Component friendName = Component.text(name, friend.gameUser().visibleGroup().getTextColor());
     String addressName = event.serverInfo().getAddress();
 
-    final TextColor gray = TextColor.color(255, 255, 255);
+    final TextColor gray = TextColor.color(170, 170, 170);
 
     final TextComponent address = TextComponent.builder()
         .text(addressName)
-        .color(gray)
+        .color(TextColor.color(255, 255, 255))
         .clickEvent(ClickEvent.runCommand("/lmfriends server " + addressName))
         .hoverEvent(HoverEvent.showText(Component.translatable("friends4chat.message.friend.server.update.hover").color(gray)))
         .build();
