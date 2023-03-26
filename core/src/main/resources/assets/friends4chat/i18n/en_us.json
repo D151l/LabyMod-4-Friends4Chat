@@ -1,7 +1,7 @@
 {
-  "example": {
+  "friends4chat": {
     "settings": {
-      "name": "ExampleAddon",
+      "name": "Friends4Chat",
       "enabled": {
         "name": "Enabled"
       }

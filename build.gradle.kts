@@ -4,18 +4,18 @@ plugins {
     id("net.labymod.gradle.addon")
 }
 
-group = "org.example"
+group = "me.d151l.friends.chat"
 version = "1.0.0"
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
 labyMod {
-    defaultPackageName = "org.example" //change this to your main package name (used by all modules)
+    defaultPackageName = "me.d151l.friends.chat"
     addonInfo {
-        namespace = "example"
-        displayName = "ExampleAddon"
-        author = "Example Author"
-        description = "Example Description"
+        namespace = "friends4chat"
+        displayName = "Friends4Chat"
+        author = "D151l"
+        description = "Manage your friends via chat or see what your friends were doing with Friends4Chat."
         minecraftVersion = "*"
         version = System.getenv().getOrDefault("VERSION", "0.0.1")
     }
