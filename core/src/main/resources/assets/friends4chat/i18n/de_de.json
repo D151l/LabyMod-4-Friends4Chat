@@ -1,0 +1,88 @@
+{
+  "friends4chat": {
+    "settings": {
+      "name": "Friends4Chat",
+      "enabled": {
+        "name": "Aktiviert"
+      },
+      "friendStateSettings": {
+        "name": "Einstellungen für Freundesstatus",
+        "updateToOnline": {
+          "name": "Benachrichtigen, wenn ein Freund online geht!"
+        },
+        "updateToOffline": {
+          "name": "Benachrichtigen, wenn ein Freund offline geht!"
+        },
+        "updateToOtherOnlineState": {
+          "name": "Benachrichtigen, wenn ein Freund den Online-Status ändert!"
+        }
+      },
+      "notifyServerUpdate": {
+        "name": "Benachrichtigen, wenn ein Freund den Server wechselt."
+      },
+      "notifyFriendRequest": {
+        "name": "Benachrichtigen, wenn eine Freundschaftsanfrage empfangen wird."
+      },
+      "notifyFriendMessageReceive": {
+        "name": "Benachrichtigen, wenn eine Nachricht von einem Freund empfangen wird."
+      },
+      "header": {
+        "friend-state": {
+          "name": "Freundesstatus"
+        },
+        "servers": {
+          "name": "Server"
+        },
+        "friend-request": {
+          "name": "Freundschaftsanfragen"
+        },
+        "chat-message-notify": {
+          "name": "Chat-Nachrichtenbenachrichtigung"
+        }
+      }
+    },
+    "message": {
+      "prefix": "§8[§3LM Freunde§8]",
+      "friend": {
+        "status": {
+          "update": "%s Dein Freund %s ist jetzt %s!"
+        },
+        "server": {
+          "update": {
+            "message": "%s Dein Freund %s spielt jetzt auf %s!",
+            "hover": "Klicken, um beizutreten!"
+          }
+        },
+        "requests": {
+          "notify": "%s Du hast eine Freundschaftsanfrage von %s erhalten! \n$s %s | %s",
+          "not": {
+            "found": "%s Du hast keine Anfrage von diesem Spieler!"
+          },
+          "successfully": {
+            "accepted": "%s Du hast die Anfrage von %s erfolgreich angenommen!",
+            "deny": "%s Du hast die Anfrage erfolgreich abgelehnt!"
+          }
+        }
+      },
+      "format": {
+        "incorrect": "%s Das Format ist falsch!"
+      },
+      "not": {
+        "connect": {
+          "labymod": "%s Du bist derzeit nicht mit den LabyMod-Servern verbunden!"
+        }
+      },
+      "chat": {
+        "notify": "%s Du hast eine neue Chat-Nachricht von %s erhalten!",
+        "hover": "Klicken, um den Chat zu öffnen",
+        "not": {
+          "found": "%s Du hast keine Freundschaft mit diesem Spieler!"
+        }
+      },
+      "bottom": {
+        "accept": "§8[§aAkzeptieren§8]",
+        "deny": "§8[§cAblehnen§8]"
+      }
+    }
+  }
+}
