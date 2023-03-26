@@ -1,9 +1,11 @@
 package me.d151l.friends.chat.settings;
 
+import me.d151l.friends.chat.settings.sub.FriendStateSettings;
 import net.labymod.api.addon.AddonConfig;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;
 import net.labymod.api.configuration.loader.annotation.ConfigName;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
+import net.labymod.api.configuration.settings.annotation.SettingSection;
 
 /**
  * @author D151l
@@ -17,8 +19,15 @@ public class AddonSettings extends AddonConfig {
   @SwitchSetting
   private final ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
 
+  @SettingSection("friend-state")
+  private FriendStateSettings friendStateSettings = new FriendStateSettings();
+
   @Override
   public ConfigProperty<Boolean> enabled() {
     return this.enabled;
+  }
+
+  public FriendStateSettings getFriendStateSettings() {
+    return friendStateSettings;
   }
 }

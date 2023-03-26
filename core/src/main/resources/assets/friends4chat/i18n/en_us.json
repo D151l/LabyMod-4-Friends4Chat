@@ -4,6 +4,31 @@
       "name": "Friends4Chat",
       "enabled": {
         "name": "Enabled"
+      },
+      "friendStateSettings": {
+        "name": "Friend States Settings",
+        "updateToOnline": {
+          "name": "Notify if Friend is going online!"
+        },
+        "updateToOffline": {
+          "name": "Notify if Friend is going offline!"
+        },
+        "updateToOtherOnlineState": {
+          "name": "Notify if Friend switch the online state!"
+        }
+      },
+      "header": {
+        "friend-state": {
+          "name": "Friend States"
+        }
+      }
+    },
+    "message": {
+      "prefix": "[LM Friends]",
+      "friend": {
+        "status": {
+          "update": "%s Your Friend %s is now %s!"
+        }
       }
     }
   }

@@ -1,28 +1,57 @@
 package me.d151l.friends.chat;
 
-import me.d151l.friends.chat.labymod.Friends4ChatAddon;
+import me.d151l.friends.chat.listener.FriendStatusUpdateListener;
+import me.d151l.friends.chat.settings.AddonSettings;
+import me.d151l.friends.chat.state.FriendStateHandler;
+import net.labymod.api.Laby;
+import net.labymod.api.addon.LabyAddon;
+import net.labymod.api.client.component.Component;
+import net.labymod.api.models.addon.annotation.AddonMain;
+import net.labymod.api.util.I18n;
 
 /**
  * @author D151l
  * @created 26/03/2023 - 16:22
  * @project labymod4-addon-template
  */
-public class Friends4Chat {
+@AddonMain
+public class Friends4Chat extends LabyAddon<AddonSettings> {
 
   private static Friends4Chat instance;
-  private final Friends4ChatAddon addon;
 
-  public Friends4Chat(Friends4ChatAddon addon) {
+  private final FriendStateHandler friendStateHandler;
+
+  private Component prefix;
+
+  public Friends4Chat() {
     instance = this;
 
-    this.addon = addon;
+    this.friendStateHandler = new FriendStateHandler(this);
+  }
+
+  @Override
+  protected void enable() {
+    this.registerSettingCategory();
+
+    this.registerListener(new FriendStatusUpdateListener(this));
+
+    this.prefix = Component.text(I18n.getTranslation("friends4chat.message.prefix"));
+  }
+
+  @Override
+  protected Class<AddonSettings> configurationClass() {
+    return AddonSettings.class;
   }
 
   public static Friends4Chat getInstance() {
     return instance;
   }
 
-  public Friends4ChatAddon getAddon() {
-    return addon;
+  public FriendStateHandler getFriendStateHandler() {
+    return friendStateHandler;
+  }
+
+  public Component getPrefix() {
+    return prefix;
   }
 }
