@@ -12,7 +12,7 @@ java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 labyMod {
     defaultPackageName = "me.d151l.friends.chat"
     addonInfo {
-        namespace = "friends4chat"
+        namespace = "friendsforchat"
         displayName = "Friends4Chat"
         author = "D151l"
         description = "Friends4Chat is a convenient addon that allows users to accept or decline friend requests directly in the chat. It provides live updates on what friends are currently doing, as well as many customization options to personalize the experience."
