@@ -9,8 +9,6 @@ import net.labymod.api.labyconnect.LabyConnectSession;
 import net.labymod.api.labyconnect.protocol.model.friend.Friend;
 import net.labymod.api.labyconnect.protocol.model.request.IncomingFriendRequest;
 import net.labymod.api.user.GameUser;
-import net.labymod.api.util.io.web.result.Result;
-import net.labymod.api.util.io.web.result.ResultCallback;
 import java.util.Objects;
 import java.util.UUID;
 
