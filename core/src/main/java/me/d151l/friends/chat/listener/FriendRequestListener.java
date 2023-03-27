@@ -45,7 +45,7 @@ public class FriendRequestListener {
         .build();
 
     final TranslatableComponent component = Component.translatable(
-        "friends4chat.message.friend.request.notify",
+        "friends4chat.message.friend.requests.notify",
         TextColor.color(170, 170, 170),
         this.friends4Chat.getPrefix(),
         requesterName,

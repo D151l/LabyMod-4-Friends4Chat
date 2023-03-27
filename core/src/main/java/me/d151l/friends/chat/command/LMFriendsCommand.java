@@ -8,6 +8,9 @@ import net.labymod.api.client.component.format.TextColor;
 import net.labymod.api.labyconnect.LabyConnectSession;
 import net.labymod.api.labyconnect.protocol.model.friend.Friend;
 import net.labymod.api.labyconnect.protocol.model.request.IncomingFriendRequest;
+import net.labymod.api.user.GameUser;
+import net.labymod.api.util.io.web.result.Result;
+import net.labymod.api.util.io.web.result.ResultCallback;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -71,15 +74,21 @@ public class LMFriendsCommand extends Command {
         }
 
         session.acceptFriendRequest(uuid);
-        final Friend friend = session.getFriend(uuid);
-        assert friend != null;
-        final String name = friend.getName();
-        final Component friendName = Component.text(name, friend.gameUser().visibleGroup().getTextColor());
+        final GameUser friend = Laby.references().gameUserService().gameUser(uuid);
+        Laby.labyAPI().labyNetController().loadNameByUniqueId(uuid, result -> {
 
-        this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.successfully.accepted",
-            gray,
-        this.friends4Chat.getPrefix(),
-            friendName));
+          if (result.isPresent()) {
+            final Component friendName = Component.text(result.get(), friend.visibleGroup().getTextColor());
+            friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.successfully.accepted",
+                gray,
+                friends4Chat.getPrefix(),
+                friendName));
+          } else {
+            this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.error",
+                gray,
+                friends4Chat.getPrefix()));
+          }
+        });
       }
 
       if (arguments[0].equals("deny")) {
@@ -160,6 +169,10 @@ public class LMFriendsCommand extends Command {
         friend.chat().openChat();
       }
     }
+    this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.command.help",
+        gray,
+        this.friends4Chat.getPrefix()
+    ));
     return true;
   }
 }

@@ -54,14 +54,15 @@
           }
         },
         "requests": {
-          "notify": "%s You have a friend request from %s! \n$s %s | %s",
+          "notify": "%s You have a friend request from %s! \n%s %s | %s",
           "not": {
             "found": "%s You don't have a request from this player!"
           },
           "successfully": {
             "accepted": "%s You have successfully accepted the request from %s!",
             "deny": "%s You have successfully denied the request!"
-          }
+          },
+          "error": "%s An error has occurred!"
         }
       },
       "format": {
@@ -82,6 +83,9 @@
       "bottom": {
         "accept": "§8[§aAccept§8]",
         "deny": "§8[§cDeny§8]"
+      },
+      "command": {
+        "help": "%s This is a command from Friends4Chat!"
       }
     }
   }
