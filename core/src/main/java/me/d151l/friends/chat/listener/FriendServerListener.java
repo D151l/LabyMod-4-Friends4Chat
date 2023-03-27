@@ -30,9 +30,8 @@ public class FriendServerListener {
       return;
 
     final Friend friend = event.friend();
-    final String name = friend.getName();
-    final Component friendName = Component.text(name, friend.gameUser().visibleGroup().getTextColor());
-    String addressName = event.serverInfo().getAddress();
+    final Component friendName = this.friends4Chat.getNameHelper().getName(friend);
+    final String addressName = event.serverInfo().getAddress();
 
     final TextColor gray = TextColor.color(170, 170, 170);
 
