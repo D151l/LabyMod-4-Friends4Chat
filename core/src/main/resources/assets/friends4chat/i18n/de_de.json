@@ -50,18 +50,19 @@
         "server": {
           "update": {
             "message": "%s Dein Freund %s spielt jetzt auf %s!",
-            "hover": "Klicken, um beizutreten!"
+            "hover": "Klicke, um beizutreten!"
           }
         },
         "requests": {
-          "notify": "%s Du hast eine Freundschaftsanfrage von %s erhalten! \n%s %s | %s",
+          "notify": "%s Du hast eine Freundschaftsanfrage von %s! \n%s %s | %s",
           "not": {
             "found": "%s Du hast keine Anfrage von diesem Spieler!"
           },
           "successfully": {
+            "accepted": "%s Du hast die Anfrage von %s erfolgreich angenommen!",
             "deny": "%s Du hast die Anfrage erfolgreich abgelehnt!"
           },
-          "error": "%s Es ist ein Fehler aufgetreten!"
+          "error": "%s Ein Fehler ist aufgetreten!"
         }
       },
       "format": {
@@ -82,9 +83,6 @@
       "bottom": {
         "accept": "§8[§aAkzeptieren§8]",
         "deny": "§8[§cAblehnen§8]"
-      },
-      "command": {
-        "help": "%s Dies ist ein Befell von Friends4Chat!"
       }
     }
   }

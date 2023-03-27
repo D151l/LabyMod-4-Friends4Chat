@@ -34,6 +34,7 @@ public class LMFriendsCommand extends Command {
     if (arguments.length == 2) {
       if (arguments[0].equals("server")) {
         Laby.labyAPI().serverController().joinServer(arguments[1]);
+        return true;
       }
 
       if (arguments[0].equals("accept")) {
@@ -87,6 +88,7 @@ public class LMFriendsCommand extends Command {
                 friends4Chat.getPrefix()));
           }
         });
+        return true;
       }
 
       if (arguments[0].equals("deny")) {
@@ -128,6 +130,7 @@ public class LMFriendsCommand extends Command {
         this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.successfully.deny",
             gray,
             this.friends4Chat.getPrefix()));
+        return true;
       }
 
       if (arguments[0].equals("openchat")) {
@@ -167,10 +170,6 @@ public class LMFriendsCommand extends Command {
         friend.chat().openChat();
       }
     }
-    this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.command.help",
-        gray,
-        this.friends4Chat.getPrefix()
-    ));
-    return true;
+    return false;
   }
 }

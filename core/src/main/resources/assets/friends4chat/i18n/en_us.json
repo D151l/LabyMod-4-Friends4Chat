@@ -83,9 +83,6 @@
       "bottom": {
         "accept": "§8[§aAccept§8]",
         "deny": "§8[§cDeny§8]"
-      },
-      "command": {
-        "help": "%s This is a command from Friends4Chat!"
       }
     }
   }
