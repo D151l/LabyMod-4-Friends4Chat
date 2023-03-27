@@ -19,6 +19,9 @@ public class AddonSettings extends AddonConfig {
   @SwitchSetting
   private final ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
 
+  @SwitchSetting
+  private final ConfigProperty<Boolean> displayRankColor = new ConfigProperty<>(true);
+
   @SettingSection("friend-state")
   private final FriendStateSettings friendStateSettings = new FriendStateSettings();
 
@@ -53,5 +56,9 @@ public class AddonSettings extends AddonConfig {
 
   public ConfigProperty<Boolean> getNotifyFriendMessageReceive() {
     return notifyFriendMessageReceive;
+  }
+
+  public ConfigProperty<Boolean> getDisplayRankColor() {
+    return displayRankColor;
   }
 }

@@ -26,6 +26,9 @@
       "notifyFriendMessageReceive": {
         "name": "Notify when receiving a message from a friend."
       },
+      "displayRankColor": {
+        "name": "Display the LabyMod rank color on player names."
+      },
       "header": {
         "friend-state": {
           "name": "Friend States"
