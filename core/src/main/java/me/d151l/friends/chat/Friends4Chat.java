@@ -1,6 +1,7 @@
 package me.d151l.friends.chat;
 
 import me.d151l.friends.chat.command.LMFriendsCommand;
+import me.d151l.friends.chat.helper.NameHelper;
 import me.d151l.friends.chat.listener.ChatMessageListener;
 import me.d151l.friends.chat.listener.FriendRequestListener;
 import me.d151l.friends.chat.listener.FriendServerListener;
@@ -21,10 +22,14 @@ public class Friends4Chat extends LabyAddon<AddonSettings> {
 
   private static Friends4Chat instance;
 
+  private final NameHelper nameHelper;
+
   private Component prefix;
 
   public Friends4Chat() {
     instance = this;
+
+    this.nameHelper = new NameHelper(this);
   }
 
   @Override
@@ -46,6 +51,10 @@ public class Friends4Chat extends LabyAddon<AddonSettings> {
 
   public static Friends4Chat getInstance() {
     return instance;
+  }
+
+  public NameHelper getNameHelper() {
+    return nameHelper;
   }
 
   public Component getPrefix() {

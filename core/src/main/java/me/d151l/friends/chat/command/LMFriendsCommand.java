@@ -76,7 +76,7 @@ public class LMFriendsCommand extends Command {
         Laby.labyAPI().labyNetController().loadNameByUniqueId(uuid, result -> {
 
           if (result.isPresent()) {
-            final Component friendName = Component.text(result.get(), friend.visibleGroup().getTextColor());
+            final Component friendName = this.friends4Chat.getNameHelper().getName(friend, result.toString());
             friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.successfully.accepted",
                 gray,
                 friends4Chat.getPrefix(),

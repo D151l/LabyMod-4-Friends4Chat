@@ -28,8 +28,7 @@ public class FriendStatusUpdateListener {
       return;
 
     final Friend friend = event.friend();
-    final String name = friend.getName();
-    final Component friendName = Component.text(name, friend.gameUser().visibleGroup().getTextColor());
+    final Component friendName = this.friends4Chat.getNameHelper().getName(friend);
     final UserStatus state = event.getStatus();
 
     if (event.isOnline() && event.getPreviousStatus().equals(UserStatus.OFFLINE)) {

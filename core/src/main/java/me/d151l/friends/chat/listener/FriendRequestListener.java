@@ -32,7 +32,7 @@ public class FriendRequestListener {
     final IncomingFriendRequest request = event.request();
     final String name = request.getName();
 
-    final Component requesterName = Component.text(name, request.gameUser().visibleGroup().getTextColor());
+    final Component requesterName = this.friends4Chat.getNameHelper().getName(request.gameUser(), name);
 
     final TextComponent acceptBottom = TextComponent.builder()
         .text(I18n.getTranslation("friends4chat.message.bottom.accept"))

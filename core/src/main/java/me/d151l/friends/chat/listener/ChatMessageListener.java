@@ -36,7 +36,7 @@ public class ChatMessageListener {
     final User sender = message.sender();
 
     final String name = sender.getName();
-    final Component friendName = Component.text(name, sender.gameUser().visibleGroup().getTextColor());
+    final Component friendName = this.friends4Chat.getNameHelper().getName(sender.gameUser(), name);
 
     final TextColor gray = TextColor.color(170, 170, 170);
 
