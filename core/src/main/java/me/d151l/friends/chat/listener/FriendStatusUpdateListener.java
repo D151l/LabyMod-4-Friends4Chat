@@ -34,27 +34,27 @@ public class FriendStatusUpdateListener {
 
     if (event.isOnline() && event.getPreviousStatus().equals(UserStatus.OFFLINE)) {
       if (this.friends4Chat.configuration().getFriendStateSettings().getUpdateToOnline().getOrDefault())
-        this.notifyFriendStateUpdate(friendName, state);
+        this.notifyFriendStateUpdate(friendName, state.component());
       return;
     }
 
     if (event.wasOnline() && event.getStatus().equals(UserStatus.OFFLINE)) {
       if (this.friends4Chat.configuration().getFriendStateSettings().getUpdateToOffline().getOrDefault())
-        this.notifyFriendStateUpdate(friendName, UserStatus.OFFLINE);
+        this.notifyFriendStateUpdate(friendName, Component.text("Offline", TextColor.color(170, 170, 170)));
       return;
     }
 
     if (this.friends4Chat.configuration().getFriendStateSettings().getUpdateToOtherOnlineState().getOrDefault())
-      this.notifyFriendStateUpdate(friendName, state);
+      this.notifyFriendStateUpdate(friendName, state.component());
   }
 
-  private void notifyFriendStateUpdate(final Component friendName, final UserStatus status) {
+  private void notifyFriendStateUpdate(final Component friendName, final Component status) {
     final TranslatableComponent component = Component.translatable(
         "friends4chat.message.friend.status.update",
         TextColor.color(170, 170, 170),
         this.friends4Chat.getPrefix(),
         friendName,
-        status.component()
+        status
     );
     this.friends4Chat.displayMessage(component);
   }
