@@ -1,6 +1,7 @@
 package me.d151l.friends.chat.listener;
 
 import me.d151l.friends.chat.Friends4Chat;
+import net.labymod.api.Laby;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.TextComponent;
 import net.labymod.api.client.component.TranslatableComponent;
