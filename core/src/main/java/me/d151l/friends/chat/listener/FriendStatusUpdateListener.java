@@ -24,6 +24,9 @@ public class FriendStatusUpdateListener {
 
   @Subscribe
   public void onStatusUpdate(final LabyConnectFriendStatusEvent event) {
+    if (!this.friends4Chat.configuration().getFriendStateSettings().getEnabled().getOrDefault())
+      return;
+
     final Friend friend = event.friend();
     final String name = friend.getName();
     final Component friendName = Component.text(name, friend.gameUser().visibleGroup().getTextColor());

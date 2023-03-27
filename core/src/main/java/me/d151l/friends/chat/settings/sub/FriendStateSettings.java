@@ -36,4 +36,8 @@ public class FriendStateSettings extends Config {
   public ConfigProperty<Boolean> getUpdateToOtherOnlineState() {
     return updateToOtherOnlineState;
   }
+
+  public ConfigProperty<Boolean> getEnabled() {
+    return enabled;
+  }
 }
