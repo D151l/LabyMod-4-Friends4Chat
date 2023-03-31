@@ -35,17 +35,17 @@ public class FriendRequestListener {
     final Component requesterName = this.friends4Chat.getNameHelper().getName(request.gameUser(), name);
 
     final TextComponent acceptBottom = TextComponent.builder()
-        .text(I18n.getTranslation("friends4chat.message.bottom.accept"))
+        .text(I18n.getTranslation("friendsforchat.message.bottom.accept"))
         .clickEvent(ClickEvent.runCommand("/lmfriends accept " + request.getUniqueId()))
         .build();
 
     final TextComponent denyBottom = TextComponent.builder()
-        .text(I18n.getTranslation("friends4chat.message.bottom.deny"))
+        .text(I18n.getTranslation("friendsforchat.message.bottom.deny"))
         .clickEvent(ClickEvent.runCommand("/lmfriends deny " + request.getUniqueId()))
         .build();
 
     final TranslatableComponent component = Component.translatable(
-        "friends4chat.message.friend.requests.notify",
+        "friendsforchat.message.friend.requests.notify",
         TextColor.color(170, 170, 170),
         this.friends4Chat.getPrefix(),
         requesterName,

@@ -39,11 +39,11 @@ public class FriendServerListener {
         .text(addressName)
         .color(TextColor.color(255, 255, 255))
         .clickEvent(ClickEvent.runCommand("/lmfriends server " + addressName))
-        .hoverEvent(HoverEvent.showText(Component.translatable("friends4chat.message.friend.server.update.hover").color(gray)))
+        .hoverEvent(HoverEvent.showText(Component.translatable("friendsforchat.message.friend.server.update.hover").color(gray)))
         .build();
 
     final TranslatableComponent component = Component.translatable(
-        "friends4chat.message.friend.server.update.message",
+        "friendsforchat.message.friend.server.update.message",
         gray,
         this.friends4Chat.getPrefix(),
         friendName,
