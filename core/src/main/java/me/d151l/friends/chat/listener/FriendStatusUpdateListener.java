@@ -49,7 +49,7 @@ public class FriendStatusUpdateListener {
 
   private void notifyFriendStateUpdate(final Component friendName, final Component status) {
     final TranslatableComponent component = Component.translatable(
-        "friends4chat.message.friend.status.update",
+        "friendsforchat.message.friend.status.update",
         TextColor.color(170, 170, 170),
         this.friends4Chat.getPrefix(),
         friendName,

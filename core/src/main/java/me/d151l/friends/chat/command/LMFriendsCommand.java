@@ -44,7 +44,7 @@ public class LMFriendsCommand extends Command {
         try {
           uuid = UUID.fromString(uuidString);
         } catch (Exception exception) {
-          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.format.incorrect",
+          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.format.incorrect",
               gray,
               this.friends4Chat.getPrefix()
           ));
@@ -52,7 +52,7 @@ public class LMFriendsCommand extends Command {
         }
 
         if (!Laby.labyAPI().labyConnect().isConnected()) {
-          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.not.connect.labymod",
+          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.not.connect.labymod",
               gray,
               this.friends4Chat.getPrefix()
           ));
@@ -65,7 +65,7 @@ public class LMFriendsCommand extends Command {
             .getIncomingRequest(uuid);
 
         if (incomingRequest == null) {
-          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.not.found",
+          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.friend.requests.not.found",
               gray,
               this.friends4Chat.getPrefix()
           ));
@@ -78,12 +78,12 @@ public class LMFriendsCommand extends Command {
 
           if (result.isPresent()) {
             final Component friendName = this.friends4Chat.getNameHelper().getName(friend, result.get());
-            friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.successfully.accepted",
+            friends4Chat.displayMessage(Component.translatable("friendsforchat.message.friend.requests.successfully.accepted",
                 gray,
                 friends4Chat.getPrefix(),
                 friendName));
           } else {
-            this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.error",
+            this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.friend.requests.error",
                 gray,
                 friends4Chat.getPrefix()));
           }
@@ -98,7 +98,7 @@ public class LMFriendsCommand extends Command {
         try {
           uuid = UUID.fromString(uuidString);
         } catch (Exception exception) {
-          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.format.incorrect",
+          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.format.incorrect",
               gray,
               this.friends4Chat.getPrefix()
           ));
@@ -106,7 +106,7 @@ public class LMFriendsCommand extends Command {
         }
 
         if (!Laby.labyAPI().labyConnect().isConnected()) {
-          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.not.connect.labymod",
+          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.not.connect.labymod",
               gray,
               this.friends4Chat.getPrefix()
           ));
@@ -119,7 +119,7 @@ public class LMFriendsCommand extends Command {
             .getIncomingRequest(uuid);
 
         if (incomingRequest == null) {
-          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.not.found",
+          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.friend.requests.not.found",
               gray,
               this.friends4Chat.getPrefix()
           ));
@@ -127,7 +127,7 @@ public class LMFriendsCommand extends Command {
         }
 
         session.declineFriendRequest(uuid);
-        this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.requests.successfully.deny",
+        this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.friend.requests.successfully.deny",
             gray,
             this.friends4Chat.getPrefix()));
         return true;
@@ -140,7 +140,7 @@ public class LMFriendsCommand extends Command {
         try {
           uuid = UUID.fromString(uuidString);
         } catch (Exception exception) {
-          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.format.incorrect",
+          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.format.incorrect",
               gray,
               this.friends4Chat.getPrefix()
           ));
@@ -148,7 +148,7 @@ public class LMFriendsCommand extends Command {
         }
 
         if (!Laby.labyAPI().labyConnect().isConnected()) {
-          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.not.connect.labymod",
+          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.not.connect.labymod",
               gray,
               this.friends4Chat.getPrefix()
           ));
@@ -160,7 +160,7 @@ public class LMFriendsCommand extends Command {
         final Friend friend = session.getFriend(uuid);
 
         if (friend == null) {
-          this.friends4Chat.displayMessage(Component.translatable("friends4chat.message.friend.chat.not.found",
+          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.friend.chat.not.found",
               gray,
               this.friends4Chat.getPrefix()
           ));

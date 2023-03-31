@@ -40,13 +40,13 @@ public class ChatMessageListener {
 
     final TextColor gray = TextColor.color(170, 170, 170);
 
-    final TranslatableComponent translatable = Component.translatable("friends4chat.message.chat.notify",
+    final TranslatableComponent translatable = Component.translatable("friendsforchat.message.chat.notify",
         gray,
         this.friends4Chat.getPrefix(),
         friendName);
 
     translatable.clickEvent(ClickEvent.runCommand("/lmfriends openchat " + sender.gameUser().getUniqueId()));
-    translatable.hoverEvent(HoverEvent.showText(Component.translatable("friends4chat.message.chat.hover", gray)));
+    translatable.hoverEvent(HoverEvent.showText(Component.translatable("friendsforchat.message.chat.hover", gray)));
 
     this.friends4Chat.displayMessage(translatable);
   }

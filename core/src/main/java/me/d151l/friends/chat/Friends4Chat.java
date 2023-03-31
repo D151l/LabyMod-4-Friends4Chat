@@ -59,7 +59,7 @@ public class Friends4Chat extends LabyAddon<AddonSettings> {
 
   public Component getPrefix() {
     if (this.prefix == null)
-      this.prefix = Component.text(I18n.getTranslation("friends4chat.message.prefix"));
+      this.prefix = Component.text(I18n.getTranslation("friendsforchat.message.prefix"));
 
     return prefix;
   }
