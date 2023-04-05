@@ -29,6 +29,12 @@ public class FriendServerListener {
     if (!this.friends4Chat.configuration().getNotifyServerUpdate().getOrDefault())
       return;
 
+    if (event.serverInfo() == null)
+      return;
+
+    if (event.serverInfo().getAddress() == null)
+      return;
+
     final Friend friend = event.friend();
     final Component friendName = this.friends4Chat.getNameHelper().getName(friend);
     final String addressName = event.serverInfo().getAddress();
