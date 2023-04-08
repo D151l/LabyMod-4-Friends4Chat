@@ -48,6 +48,15 @@ public class DenyCommand {
     }
 
     final LabyConnectSession session = Laby.labyAPI().labyConnect().getSession();
+
+    if (session == null) {
+      this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.laby.session.null",
+          this.gray,
+          this.friends4Chat.getPrefix()
+      ));
+      return false;
+    }
+
     final IncomingFriendRequest incomingRequest = Objects.requireNonNull(
             session)
         .getIncomingRequest(uuid);
