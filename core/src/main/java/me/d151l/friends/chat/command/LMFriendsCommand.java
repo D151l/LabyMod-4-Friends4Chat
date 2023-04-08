@@ -156,7 +156,15 @@ public class LMFriendsCommand extends Command {
         }
 
         final LabyConnectSession session = Laby.labyAPI().labyConnect().getSession();
-        assert session != null;
+
+        if (session == null) {
+          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.laby.session.null",
+              gray,
+              this.friends4Chat.getPrefix()
+          ));
+          return true;
+        }
+
         final Friend friend = session.getFriend(uuid);
 
         if (friend == null) {
