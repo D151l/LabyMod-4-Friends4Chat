@@ -160,7 +160,7 @@ public class LMFriendsCommand extends Command {
         final Friend friend = session.getFriend(uuid);
 
         if (friend == null) {
-          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.friend.chat.not.found",
+          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.chat.not.found",
               gray,
               this.friends4Chat.getPrefix()
           ));
