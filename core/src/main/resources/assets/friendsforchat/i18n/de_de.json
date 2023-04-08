@@ -83,6 +83,11 @@
           "found": "%s Du hast keine Freundschaft mit diesem Spieler!"
         }
       },
+      "laby": {
+        "session": {
+          "null": "%s Du bist momentan nicht mit den LabyMod 4-Servern verbunden."
+        }
+      },
       "bottom": {
         "accept": "§8[§aAkzeptieren§8]",
         "deny": "§8[§cAblehnen§8]"

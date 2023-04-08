@@ -1,16 +1,12 @@
 package me.d151l.friends.chat.command;
 
 import me.d151l.friends.chat.Friends4Chat;
+import me.d151l.friends.chat.command.sub.AcceptCommand;
+import me.d151l.friends.chat.command.sub.DenyCommand;
+import me.d151l.friends.chat.command.sub.OpenChatCommand;
 import net.labymod.api.Laby;
 import net.labymod.api.client.chat.command.Command;
-import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.format.TextColor;
-import net.labymod.api.labyconnect.LabyConnectSession;
-import net.labymod.api.labyconnect.protocol.model.friend.Friend;
-import net.labymod.api.labyconnect.protocol.model.request.IncomingFriendRequest;
-import net.labymod.api.user.GameUser;
-import java.util.Objects;
-import java.util.UUID;
 
 /**
  * @author D151l
@@ -21,153 +17,45 @@ public class LMFriendsCommand extends Command {
 
   private final Friends4Chat friends4Chat;
 
+  private final OpenChatCommand openChatCommand;
+  private final DenyCommand denyCommand;
+  private final AcceptCommand acceptCommand;
+
   public LMFriendsCommand(final Friends4Chat friends4Chat) {
     super("lmfriends", "lmfriend");
 
     this.friends4Chat = friends4Chat;
+
+    this.openChatCommand = new OpenChatCommand(this.friends4Chat);
+    this.denyCommand =new DenyCommand(this.friends4Chat);
+    this.acceptCommand = new AcceptCommand(this.friends4Chat);
   }
 
   @Override
   public boolean execute(String prefix, String[] arguments) {
-    final TextColor gray = TextColor.color(170, 170, 170);
 
     if (arguments.length == 2) {
       if (arguments[0].equals("server")) {
         Laby.labyAPI().serverController().joinServer(arguments[1]);
+
         return true;
       }
 
       if (arguments[0].equals("accept")) {
-        final String uuidString = arguments[1];
-        UUID uuid;
+        final boolean successfully = this.acceptCommand.runCommand(arguments);
 
-        try {
-          uuid = UUID.fromString(uuidString);
-        } catch (Exception exception) {
-          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.format.incorrect",
-              gray,
-              this.friends4Chat.getPrefix()
-          ));
-          return true;
-        }
-
-        if (!Laby.labyAPI().labyConnect().isConnected()) {
-          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.not.connect.labymod",
-              gray,
-              this.friends4Chat.getPrefix()
-          ));
-          return true;
-        }
-
-        final LabyConnectSession session = Laby.labyAPI().labyConnect().getSession();
-        final IncomingFriendRequest incomingRequest = Objects.requireNonNull(
-                session)
-            .getIncomingRequest(uuid);
-
-        if (incomingRequest == null) {
-          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.friend.requests.not.found",
-              gray,
-              this.friends4Chat.getPrefix()
-          ));
-          return true;
-        }
-
-        session.acceptFriendRequest(uuid);
-        final GameUser friend = Laby.references().gameUserService().gameUser(uuid);
-        Laby.labyAPI().labyNetController().loadNameByUniqueId(uuid, result -> {
-
-          if (result.isPresent()) {
-            final Component friendName = this.friends4Chat.getNameHelper().getName(friend, result.get());
-            friends4Chat.displayMessage(Component.translatable("friendsforchat.message.friend.requests.successfully.accepted",
-                gray,
-                friends4Chat.getPrefix(),
-                friendName));
-          } else {
-            this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.friend.requests.error",
-                gray,
-                friends4Chat.getPrefix()));
-          }
-        });
         return true;
       }
 
       if (arguments[0].equals("deny")) {
-        final String uuidString = arguments[1];
-        UUID uuid;
+        final boolean successfully = this.denyCommand.runCommand(arguments);
 
-        try {
-          uuid = UUID.fromString(uuidString);
-        } catch (Exception exception) {
-          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.format.incorrect",
-              gray,
-              this.friends4Chat.getPrefix()
-          ));
-          return true;
-        }
-
-        if (!Laby.labyAPI().labyConnect().isConnected()) {
-          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.not.connect.labymod",
-              gray,
-              this.friends4Chat.getPrefix()
-          ));
-          return true;
-        }
-
-        final LabyConnectSession session = Laby.labyAPI().labyConnect().getSession();
-        final IncomingFriendRequest incomingRequest = Objects.requireNonNull(
-                session)
-            .getIncomingRequest(uuid);
-
-        if (incomingRequest == null) {
-          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.friend.requests.not.found",
-              gray,
-              this.friends4Chat.getPrefix()
-          ));
-          return true;
-        }
-
-        session.declineFriendRequest(uuid);
-        this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.friend.requests.successfully.deny",
-            gray,
-            this.friends4Chat.getPrefix()));
         return true;
       }
 
       if (arguments[0].equals("openchat")) {
-        final String uuidString = arguments[1];
-        UUID uuid;
+        final boolean successfully = this.openChatCommand.runCommand(arguments);
 
-        try {
-          uuid = UUID.fromString(uuidString);
-        } catch (Exception exception) {
-          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.format.incorrect",
-              gray,
-              this.friends4Chat.getPrefix()
-          ));
-          return true;
-        }
-
-        if (!Laby.labyAPI().labyConnect().isConnected()) {
-          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.not.connect.labymod",
-              gray,
-              this.friends4Chat.getPrefix()
-          ));
-          return true;
-        }
-
-        final LabyConnectSession session = Laby.labyAPI().labyConnect().getSession();
-        assert session != null;
-        final Friend friend = session.getFriend(uuid);
-
-        if (friend == null) {
-          this.friends4Chat.displayMessage(Component.translatable("friendsforchat.message.chat.not.found",
-              gray,
-              this.friends4Chat.getPrefix()
-          ));
-          return true;
-        }
-
-        friend.chat().openChat();
         return true;
       }
     }
