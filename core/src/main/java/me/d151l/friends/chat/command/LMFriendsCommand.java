@@ -168,6 +168,7 @@ public class LMFriendsCommand extends Command {
         }
 
         friend.chat().openChat();
+        return true;
       }
     }
     return false;
